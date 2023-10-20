@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST["usuario"];
     $senha = password_hash($_POST["senha"], PASSWORD_BCRYPT);
     $email = $_POST["email"];
