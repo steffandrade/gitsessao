@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Erro na conexão do banco de dados:" . $e->getMessage());
 }
 
-$stmt = $pdo->prepare("INSERT INTO usuarios (usuario,senha,email) VALUES (?,?,?)");
+$stmt = $pdo->prepare("INSERT INTO usuario (usuario,senha,email) VALUES (?,?,?)");
 $stmt->execute([$usuario, $senha, $email]);
 
 $_SESSION["usuario"] = $usuario;

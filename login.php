@@ -15,13 +15,13 @@ try {
 
 // Verifique se o usuário existe e a senha está correta
 
-$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = ?");
+$stmt = $pdo->prepare("SELECT * FROM usuario WHERE usuario = ?");
 $stmt->execute([$usuario]);
 $user = $stmt->fetch();
 
-if ($user && password_verify($senha, $user["senhaa"])) {
+if ($user && password_verify($senha, $user["senha"])) {
     $_SESSION["usuario"] = $usuario;
-    header("Location: ./src/public/dashboard.php");
+    header("Location: dashboard.php");
 } else {
     echo "<script>alert('Login falhou. Verifique suas credenciais.')</script";
 }
