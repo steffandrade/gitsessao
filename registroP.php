@@ -2,14 +2,14 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST["usuario"];
-    $senha = password_hash($_POST["senha"], PASSWORD_BCRYPT);
-    $email = $_POST["email"];
+    $nome = $_POST["nome"];
+    $qtde = password_hash($_POST["qtde"], PASSWORD_BCRYPT);
+    $preco = $_POST["preco"];
 
     require_once 'config.php';
-    require_once 'controllers/UsuarioController.php';
-    $usuarioController = new UsuarioController($pdo);
-    $usuarioController->criarUsuario($usuario, $senha, $email);
+    require_once 'controllers/ProdutoController.php';
+    $produtoController = new ProdutoController($pdo);
+    $produtoController->criarProduto($nome, $qtde, $preco);
 
 }
 ?>
@@ -31,17 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="card-content">
                 <div class="card-content-area">
-                <input type="text" name="usuario" placeholder="Nome de Usuário" required><br>
+                <input type="text" name="nome" placeholder="Nome do Produto" required><br>
                 </div>
               
             <div class="card-content">
                 <div class="card-content-area">
-                <input type="password" name="senha" placeholder="Senha" required><br>
+                <input type="text" name="qtde" placeholder="Quantidade" required><br>
                 </div>
 
             <div class="card-content">
                 <div class="card-content-area">
-            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="preco" name="preco" placeholder="Preço" required><br>
                 </div>
 
                 <div class="card-content-area">
@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </form>
     </div>
+
 
 </body>
 </html>

@@ -18,6 +18,8 @@ echo "Bem-vindo," . $_SESSION["usuario"] . "! Esta é a página de dashboard.";
 </head>
 <body>
     
+<h1>Dashboard</h1>
+
 <a href="login.php">Sair</a>
 
 </body>
